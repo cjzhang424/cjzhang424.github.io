@@ -1,0 +1,23 @@
+remote_theme: brianmaierjr/long-haul
+title: 张雅峰的博客
+description: >-
+  我是一个支持从 IT 基础设施建设 到 DevOps 全面覆盖的追求者，一个运维圈子里的小学生，博客内容不固定，可能有技术、有感想，想到什么写什么。
+url: "https://cjzhangA.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+timezone: Asia/Shanghai
+encoding: utf-8
+twitter_username: zhangyafeng_cj
+github_username:  cjzhangA
+email: zhangyafeng.cj@gmail.com
+markdown: kramdown
+plugins:
+  - jekyll-feed
+webrick:
+  headers:
+    My-Header: 张雅峰的博客
+    My-Other-Header: 运维圈子里的小学生
+defaults:
+  -
+    scope:
+      path: "" # 一个空的字符串代表项目中所有的文件
+    values:
+      layout: "default"
