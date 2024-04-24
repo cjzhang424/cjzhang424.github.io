@@ -1,0 +1,12 @@
+// 将键绑定放在此文件中以覆盖默认值
+[
+    {
+        "key": "ctrl+w",                      // The keyboard shortcut
+        "command": "editor.action.clipboardCutAction",  // The command to execute
+        "when": "editorTextFocus && !editorHasSelection" // Condition for when the command should be active
+    },
+    {
+        "key": "ctrl+j",
+        "command": "editor.action.insertLineAfter",
+        "when": "editorTextFocus"
+    }

@@ -1,0 +1,67 @@
+{
+    // 设置自动保存
+    "files.autoSave": "afterDelay", // 或者设置为 "afterDelay" 并指定 "files.autoSaveDelay"
+
+    // 设置自动保存的延迟时间（毫秒），仅在 "files.autoSave" 设置为 "afterDelay" 时需要
+    "files.autoSaveDelay": 1000, // 例如 1 秒
+
+    // 去掉多余空格
+    "files.trimTrailingWhitespace": true,
+
+
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.testing.pytestEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--ignore-missing-imports"
+    ],
+    "python.linting.yapfEnabled": true,
+    "python.formatting.provider": "yapf",
+    "editor.fontSize": 18,
+    "editor.renderWhitespace": "all",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "files.exclude": {
+        "**/*.pyc": true,
+        "**/*~": true
+    },
+    "workbench.accounts.experimental.showEntitlements": true,
+    "remote.SSH.remotePlatform": {
+        "172.18.62.86": "linux"
+    },
+    "terminal.integrated.commandsToSkipShell": [
+        "-workbench.action.quickOpen",
+        "-workbench.action.terminal.focusFind",
+        "-workbench.action.toggleSidebarVisibility"
+    ],
+    "remote.SSH.showLoginTerminal": true,
+    "Codegeex.Privacy": false,
+    "files.autoSave": "off",
+    "[dockerfile]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        }
+    },
+    "remote.autoForwardPortsFallback": 0,
+
+    // 文件头部注释
+    "fileheader.customMade": {
+        "Author": "CoderXin",
+        "Date": "new Date()",
+        "Descripttion": "",
+        "Usage": "",
+        "Notes": ""
+    },
+
+    //函数注释
+    "fileheader.cursorMode": {
+        "name": "",
+        "msg": "",
+        "param": "",
+        "return": ""
+    }
+}
