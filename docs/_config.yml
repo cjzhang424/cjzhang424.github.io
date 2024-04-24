@@ -1,4 +1,4 @@
-remote_theme: brianmaierjr/long-haul
+remote_theme: benbalter/retlab
 title: 张雅峰的博客
 description: >-
   我是一个支持从 IT 基础设施建设 到 DevOps 全面覆盖的追求者，一个运维圈子里的小学生，博客内容不固定，可能有技术、有感想，想到什么写什么。
@@ -11,6 +11,7 @@ email: zhangyafeng.cj@gmail.com
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 webrick:
   headers:
     My-Header: 张雅峰的博客
