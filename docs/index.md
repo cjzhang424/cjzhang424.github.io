@@ -11,3 +11,6 @@ layout: default
   - 预览内容A
 - 标题B
   - 预览内容B
+
+* TOC
+{:toc}

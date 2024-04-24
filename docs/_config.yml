@@ -9,6 +9,8 @@ twitter_username: zhangyafeng_cj
 github_username:  cjzhangA
 email: zhangyafeng.cj@gmail.com
 markdown: kramdown
+kramdown:
+  auto_ids: true
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
