@@ -1,3 +1,19 @@
+---
+title: MySQL 的增量备份
+date: 2016-10-26 15:44:00
+tags:
+- mysql
+- 数据库
+- 备份
+- 增量备份
+categories:
+- 上古记录
+- mysql
+- xtrabackup
+- percona
+feature_image: "https://picsum.photos/2560/600?image=872"
+---
+
 # mysql Innodb引擎的增量备份
 今天说说 mysql 的备份。
 ## 问题
