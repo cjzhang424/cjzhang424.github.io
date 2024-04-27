@@ -168,7 +168,7 @@ body {
 }
 
 .section {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 
@@ -189,11 +189,11 @@ body {
 .item {
   &--nav {
     @include breakpoint(break-1) {
-      margin-left: .4rem;
+      margin-right: .4rem;
       display: inline-block;
     }
     &:first-of-type {
-      margin-left: 0;
+      margin-right: 0;
     }
   }
   &--current {

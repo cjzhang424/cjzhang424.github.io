@@ -68,7 +68,7 @@ collections:
     description: "My thoughts and ideas" # The post list page content
     feature_text: |
       Welcome to the blog
-    feature_image: "https://picsum.photos/2560/600?image=866"
+    feature_image: "/assets/static/img/content.jpg?image=866"
 
 # 6. Jekyll collections settings
 defaults:
@@ -76,7 +76,7 @@ defaults:
     scope:
       path: ""
     values:
-      image: "/assets/default-social-image.png" # Default image for sharing
+      image: "/assets/static/img/default-social-image.png" # Default image for sharing
   -
     scope:
       path: ""
@@ -121,24 +121,27 @@ favicons: # Favicons are also used in the manifest file. Syntax is 'size: path'
 
 # 9. Site navigation
 navigation_header:
-- title: 主页
+- title: Home
   url: /
 - title: SMBIT
   url: /blog/infrastructure/
 - title: DevOps
   url: /blog/devops/
-- title: Search
-  url: /search/
+- title: Tools
+  url: /blog/tools/
+- title: History
+  url: /blog/history/
+- title: Thanks
+  url: /thanks/
 
 navigation_footer:
 - title: 外链（待定）
   url: #
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
-  Twitter: https://twitter.com/DavidDarnes
-  LinkedIn: https://www.linkedin.com/in/daviddarnes
-  GitHub: https://github.com/daviddarnes
-  link: https://darn.es
+  Twitter: https://twitter.com/cjzhangA
+  GitHub: https://github.com/cjzhangA
+  link: https://cjzhangA.github.io
   RSS: /feed.xml
 
 sharing_links: # Appear at the bottom of single blog posts, add as desired. The value can be 'true' or the desired button colour

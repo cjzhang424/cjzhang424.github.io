@@ -3,3 +3,6 @@ _site
 .jekyll-metadata
 *~
 .devcontainer
+.vscode
+.jekyll-cache
+.ruby-lsp

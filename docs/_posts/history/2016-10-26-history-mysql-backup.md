@@ -1,17 +1,13 @@
 ---
-title: MySQL 的增量备份
+title: MySQL 的备份
 date: 2016-10-26 15:44:00
-tags:
-- mysql
-- 数据库
-- 备份
-- 增量备份
+excerpt: "Percona Xtrabackup 的使用示例"
 categories:
-- 上古记录
+- history
 - mysql
 - xtrabackup
 - percona
-feature_image: "https://picsum.photos/2560/600?image=872"
+feature_image: "/assets/static/img/content.jpg?image=872"
 ---
 
 # mysql Innodb引擎的增量备份
@@ -22,8 +18,8 @@ mysql 有不少存储引擎，percona 有自己的引擎，官方本身还有 my
 先提到存储引擎呢？因为由于不同的存储引擎因为实现原理不同，它的读写过程不一样，导致备份
 的方式也要有所差别。
 ## 其他特点
-1. /*上面链接中没有提到的是，MyISAM 并不支持事物性操作，由于文中并没有提到，所以这里单独拿出来说明下。*/
-2. 还有一点要强调的是，MyISAM 只支持表锁，也就是说如果你要将一个表的数据拿出来单独存放的时候，如果数据
+1. **MyISAM 并不支持事物性操作**
+2. **MyISAM 只支持表锁**，也就是说如果你要将一个表的数据拿出来单独存放的时候，如果数据
 够大，在你读出整张表来的时间段内，整个表就会被上锁，如果这个期间有来自客户端的写请求便会阻塞。
 
 ## 备份
@@ -45,28 +41,28 @@ MyISAM 引擎不支持事物操作，相反 InnoDB 则支持，这就直接导�
    # 同样以时间戳来命名备份的子目录，
    # 必须加上基础全量备份目录
    innobackupex \
-   --incremental-basedir=/backup/mysql/data/2016-10-29_09-05-25 \
-   --incremental /backup/mysql/data
+      --incremental-basedir=/backup/mysql/data/2016-10-29_09-05-25 \
+      --incremental /backup/mysql/data
 ```
 
 在恢复数据时，首先要将增量备份的备份数据合并到基础备份中，而在合并之前，需要执行额外的操作，
 由于在备份时有可能有将要执行但是还没执行的未提交、未回滚的操作，所以在恢复之前要先将这些，
 未执行的日志操作在备份目录执行一遍，以保证恢复数据的完整性（和数据库的数据一致）。
 
-   ``` shell
-      # 重新执行日志中记录的事物操作，
-      #               --apply-log 选项的作用是对数据执行日志记录的操作，
-      #               --redo-only 选项的作用是只 执行未提交的数据，
-      #                                 而不执行回滚操作
-      innobackupex --apply-log --redo-only BASE-DIR
-      # 对增量数据目录执行一遍，并且合并到完整备份的数据中
-      innobackupex --apply-log --redo-only BASE-DIR \
-         --incremental-dir=INCREMENTAL-DIR-1
-      # 执行全部日志操作
-      innobackupex --apply-log BASE-DIR
-      # 写会数据目录，注意，在本步骤中，必须将数据库停止，
-      # 然后“清空”数据库的数据目录，保证
-      # 数据库的数据目录是空的，否则不会执行，
-      # 或者将你要恢复的表手动复制回数据库的数据目录也可以
-      innobackupex --copy-back BASE-DIR
-      ```
+``` shell
+   # 重新执行日志中记录的事物操作，
+   #               --apply-log 选项的作用是对数据执行日志记录的操作，
+   #               --redo-only 选项的作用是只 执行未提交的数据，
+   #                                 而不执行回滚操作
+   innobackupex --apply-log --redo-only BASE-DIR
+   # 对增量数据目录执行一遍，并且合并到完整备份的数据中
+   innobackupex --apply-log --redo-only BASE-DIR \
+      --incremental-dir=INCREMENTAL-DIR-1
+   # 执行全部日志操作
+   innobackupex --apply-log BASE-DIR
+   # 写会数据目录，注意，在本步骤中，必须将数据库停止，
+   # 然后“清空”数据库的数据目录，保证
+   # 数据库的数据目录是空的，否则不会执行，
+   # 或者将你要恢复的表手动复制回数据库的数据目录也可以
+   innobackupex --copy-back BASE-DIR
+```

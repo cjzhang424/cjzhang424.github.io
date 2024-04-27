@@ -9,4 +9,68 @@
         "key": "ctrl+j",
         "command": "editor.action.insertLineAfter",
         "when": "editorTextFocus"
+    },
+    // Ctrl+P for moving cursor up
+    {
+        "key": "ctrl+p",
+        "command": "cursorUp",
+        "when": "textInputFocus"
+    },
+    // Ctrl+N for moving cursor down
+    {
+        "key": "ctrl+n",
+        "command": "cursorDown",
+        "when": "textInputFocus"
+    },
+    // Ctrl+B for moving cursor left (backward)
+    {
+        "key": "ctrl+b",
+        "command": "cursorLeft",
+        "when": "textInputFocus"
+    },
+    // Ctrl+F for moving cursor right (forward)
+    {
+        "key": "ctrl+f",
+        "command": "cursorRight",
+        "when": "textInputFocus"
+    },
+    // Ctrl+A for moving to the beginning of the line
+    {
+        "key": "ctrl+a",
+        "command": "cursorHome",
+        "when": "textInputFocus"
+    },
+    // Ctrl+E for moving to the end of the line
+    {
+        "key": "ctrl+e",
+        "command": "cursorEnd",
+        "when": "textInputFocus"
+    },
+    // Ctrl+D for deleting the character under the cursor
+    {
+        "key": "ctrl+d",
+        "command": "deleteRight",
+        "when": "textInputFocus"
+    },
+    // Ctrl+K for deleting the line part right of the cursor
+    {
+        "key": "ctrl+k",
+        "command": "deleteAllRight",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "editor.action.insertLineAfter",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "editor.action.clipboardPasteAction",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "undo",
+        "when": "editorTextFocus"
     }
+]
